@@ -1,0 +1,51 @@
+<div class="container">
+    <form>
+        <mat-form-field class="form_element">
+            <input
+            matInput
+            placeholder="Name"
+            required
+            [(ngModel)] = "model.name"
+            name="name"
+            #name="ngModel"
+            />
+            <mat-error *ngIf="!name.valid || name.pristine">
+                Name is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-radio-group class="form_element">
+            <p>Choose an option:</p>
+            <mat-radio-button 
+            value="pickup"
+            (change)="onPickupOrDelivery(false)"
+            >Pickup</mat-radio-button>
+            <mat-radio-button 
+            value="delivery"
+            (change)="onPickupOrDelivery(true)"
+            >
+            Delivery
+        </mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field class="form_element">
+            <input
+               matInput
+               placeholder="Shipping Address"
+               [(ngModel)]="model.shippingAddress"
+               name="shippingAddress"
+               #shippingAddress="ngModel"
+            />
+        </mat-form-field>
+
+        <mat-form-field class="form_element">
+            <input
+               matInput
+               placeholder="City"
+               [(ngModel)]="model.city"
+               name="city"
+               #city="ngModel"
+            />
+        </mat-form-field>
+    </form>
+</div>
