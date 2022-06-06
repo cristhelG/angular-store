@@ -1,5 +1,5 @@
 <div class="container">
-    <form>
+    <form class="form item">
         <mat-form-field class="form_element">
             <input
             matInput
@@ -47,5 +47,27 @@
                #city="ngModel"
             />
         </mat-form-field>
+
+        <mat-form-field class="form_element">
+            <mat-label>Select me</mat-label>
+            <mat-select 
+            name="store"
+            #store="ngModel"
+            [(ngModel)]="model.store">
+                <mat-option [value]="tienda" *ngFor="let tienda of stores">
+                    {{tienda.name}} - {{tienda.openingHours}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
     </form>
+</div>
+
+<div class="container_button">
+    <button
+    [disabled]=""
+    mat-raised-button
+    color="primary"
+    type="submit">
+        Checkout
+    </button>
 </div>
